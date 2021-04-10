@@ -15,7 +15,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@pikostudio/command.ts-v2": "^2.0.0",
+    "@pikostudio/command.ts": "^2.0.1",
     "discord.js": "^12.5.3",
     "dokdo": "wonderlandpark/dokdo"
   }

@@ -1,5 +1,6 @@
 import MilkClient from "../client";
-import {listener, Module} from "@pikostudio/command.ts-v2";
+import {command, listener, Module} from "@pikostudio/command.ts";
+import {Message} from "discord.js";
 
 class General extends Module {
     constructor(public client: MilkClient) {
@@ -9,6 +10,12 @@ class General extends Module {
     @listener('ready')
     async ready() {
         console.log(`Logged in as ${this.client.user!.tag}`)
+    }
+
+    @command({aliases: ['도움말']})
+    async help(msg: Message) {
+        const modules = this.client.registry.commandManager.commands.map((value, key) => ({group: key.constructor.name, commands: value}))
+        console.log(modules)
     }
 }
 

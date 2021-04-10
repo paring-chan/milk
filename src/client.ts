@@ -1,5 +1,5 @@
 import * as Discord from 'discord.js'
-import {CommandClient} from "@pikostudio/command.ts-v2";
+import {CommandClient} from "@pikostudio/command.ts";
 // @ts-ignore
 import config from '../config.json'
 import Dokdo from "dokdo";
@@ -13,8 +13,8 @@ export default class MilkClient extends CommandClient {
         }, {
             owners: 'auto',
             prefix: config.prefix,
-        })
-        this.registry.loadModule(path.join(__dirname, 'modules/general'))
+        });
+        ['general', 'dev'].forEach((x) => this.registry.loadModule(path.join(__dirname, 'modules/' + x)))
         this.login(config.token).then(() => {
             const dokdo = new Dokdo(this, {
                 noPerm(msg: Discord.Message): any {

@@ -25,6 +25,15 @@
     reflect-metadata "^0.1.13"
     typescript "^4.2.3"
 
+"@pikostudio/command.ts@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@pikostudio/command.ts/-/command.ts-2.0.1.tgz#65e5e03baed4a70dbc70944f2684193a20450ebc"
+  integrity sha512-ItFdh+8EutU+Dbj4+jHmcfKbEWRnyAVH7GO6aWgVnVZEENd6OlaWPUfQYdpLczfJWQ0B0zsGQicj3zhJI0Orzw==
+  dependencies:
+    "@types/node" "^14.14.37"
+    reflect-metadata "^0.1.13"
+    typescript "^4.2.3"
+
 "@types/node@^14.14.37":
   version "14.14.37"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
