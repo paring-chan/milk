@@ -26,6 +26,22 @@ class General extends PatchedModule {
     }
     await msg.reply(embed)
   }
+  @command({ name: '핑', aliases: ['ping'] })
+  async ping(msg: Message) {
+    const m = await msg.reply(
+      new MessageEmbed({
+        title: '메시지 지연 시간 계산중입니다. 잠시만 기다려주세요....',
+      }),
+    )
+    const messagePing = Date.now() - m.createdTimestamp
+    await m.edit(
+      new MessageEmbed({
+        title: '🏓 | 풍!',
+        description: `디스코드 API 핑: ${this.client.ws.ping}ms
+메시지 지연 시간: ${messagePing}ms`,
+      }),
+    )
+  }
 }
 
 export function install(client: MilkClient) {
