@@ -16,10 +16,10 @@
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-"@pikostudio/command.ts@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@pikostudio/command.ts/-/command.ts-2.0.1.tgz#65e5e03baed4a70dbc70944f2684193a20450ebc"
-  integrity sha512-ItFdh+8EutU+Dbj4+jHmcfKbEWRnyAVH7GO6aWgVnVZEENd6OlaWPUfQYdpLczfJWQ0B0zsGQicj3zhJI0Orzw==
+"@pikostudio/command.ts@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@pikostudio/command.ts/-/command.ts-2.0.2.tgz#90204e4431d4551af1fc9cb211fd4e6fe15e323b"
+  integrity sha512-6HC9m+s6guhndi7ELTQzhyVDJa/+/Vf1jen+3aLVD0L9DkOCrhmScdiKDQ0Vw113/l04hQU2caB/ctOZL6vRVA==
   dependencies:
     "@types/node" "^14.14.37"
     reflect-metadata "^0.1.13"
@@ -106,19 +106,17 @@ diff@^4.0.1:
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
-discord.js@^12.5.3:
-  version "12.5.3"
-  resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-12.5.3.tgz#56820d473c24320871df9ea0bbc6b462f21cf85c"
-  integrity sha512-D3nkOa/pCkNyn6jLZnAiJApw2N9XrIsXUAdThf01i7yrEuqUmDGc7/CexVWwEcgbQR97XQ+mcnqJpmJ/92B4Aw==
+discord.js@discordjs/discord.js:
+  version "12.5.0"
+  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/63ff6a07ebcba7e9134e3902e338e8dc6564ee63"
   dependencies:
     "@discordjs/collection" "^0.1.6"
     "@discordjs/form-data" "^3.0.1"
     abort-controller "^3.0.0"
     node-fetch "^2.6.1"
-    prism-media "^1.2.9"
-    setimmediate "^1.0.5"
+    prism-media "^1.2.2"
     tweetnacl "^1.0.3"
-    ws "^7.4.4"
+    ws "^7.3.1"
 
 dokdo@wonderlandpark/dokdo:
   version "0.3.0"
@@ -164,7 +162,7 @@ prettier@^2.2.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
-prism-media@^1.2.9:
+prism-media@^1.2.2:
   version "1.2.9"
   resolved "https://registry.yarnpkg.com/prism-media/-/prism-media-1.2.9.tgz#8d4f97b36efdfc82483eb8d3db64020767866f36"
   integrity sha512-UHCYuqHipbTR1ZsXr5eg4JUmHER8Ss4YEb9Azn+9zzJ7/jlTtD1h0lc4g6tNx3eMlB8Mp6bfll0LPMAV4R6r3Q==
@@ -173,11 +171,6 @@ reflect-metadata@^0.1.13:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
-
-setimmediate@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
-  integrity sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
 
 source-map-support@^0.5.17:
   version "0.5.19"
@@ -221,7 +214,7 @@ typescript@^4.2.3, typescript@^4.2.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
   integrity sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg==
 
-ws@^7.4.4:
+ws@^7.3.1:
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.4.tgz#383bc9742cb202292c9077ceab6f6047b17f2d59"
   integrity sha512-Qm8k8ojNQIMx7S+Zp8u/uHOx7Qazv3Yv4q68MiWWWOJhiwG5W3x7iqmRtJo8xxrciZUY4vRxUTJCKuRnF28ZZw==
