@@ -1,3 +1,3 @@
-import MilkClient from "./client";
+import MilkClient from './client'
 
 new MilkClient()
