@@ -17,9 +17,9 @@
     mime-types "^2.1.12"
 
 "@pikostudio/command.ts@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@pikostudio/command.ts/-/command.ts-2.0.2.tgz#90204e4431d4551af1fc9cb211fd4e6fe15e323b"
-  integrity sha512-6HC9m+s6guhndi7ELTQzhyVDJa/+/Vf1jen+3aLVD0L9DkOCrhmScdiKDQ0Vw113/l04hQU2caB/ctOZL6vRVA==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@pikostudio/command.ts/-/command.ts-2.0.3.tgz#825e9e312217855c74336242655704d41ec24fab"
+  integrity sha512-B0LcDHZvEBxs7M02c/D2rmicQGMoX+LdKZVm8JGJ4oXymK24O81PD4S56bui4zV9Wa16R2U4xGpRmLZaJrW4PA==
   dependencies:
     "@types/node" "^14.14.37"
     reflect-metadata "^0.1.13"
