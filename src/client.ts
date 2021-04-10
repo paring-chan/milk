@@ -11,7 +11,10 @@ export default class MilkClient extends CommandClient {
 
   constructor() {
     super(
-      {},
+      {
+        partials: ['CHANNEL', 'GUILD_MEMBER', 'MESSAGE', 'USER', 'REACTION'],
+        intents: Discord.Intents.ALL,
+      },
       {
         owners: 'auto',
         prefix: config.prefix,
