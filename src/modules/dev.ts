@@ -28,7 +28,7 @@ class Dev extends PatchedModule {
       }
     }
     result += `\`\`\`\n${success} successful, ${failed} failed.`
-    await msg.channel.send(result)
+    await msg.reply(result)
   }
 
   @listener('commandError')
