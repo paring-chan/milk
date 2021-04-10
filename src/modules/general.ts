@@ -2,9 +2,8 @@ import MilkClient from '../client'
 import { command, listener } from '@pikostudio/command.ts'
 import { Message, MessageEmbed } from 'discord.js'
 import PatchedModule from '../PatchedModule'
-import dayjs from 'dayjs'
-import { Duration } from 'dayjs/plugin/duration'
 import * as os from 'os'
+import moment from 'moment'
 
 class General extends PatchedModule {
   constructor(public client: MilkClient) {
@@ -46,18 +45,18 @@ class General extends PatchedModule {
     )
   }
 
-  formatDuration(time: Duration) {
-    return time.format('DD일 HH시간 mm분 ss초')
+  formatDuration(duration: number) {
+    return moment
+      .duration(duration)
+      .format('Y[년] M[월] D[일] H[시간] m[분] s[초]')
   }
 
   @command({ name: '업타임', aliases: ['uptime'] })
   async uptime(msg: Message) {
-    const processUptime = this.formatDuration(
-      dayjs.duration(process.uptime() * 1000),
-    )
-    const serverUptime = this.formatDuration(dayjs.duration(os.uptime() * 1000))
+    const processUptime = this.formatDuration(process.uptime() * 1000)
+    const serverUptime = this.formatDuration(os.uptime() * 1000)
     const botUptime = this.formatDuration(
-      dayjs.duration(Date.now() - this.client.readyTimestamp!),
+      Date.now() - this.client.readyTimestamp!,
     )
     await msg.reply(
       new MessageEmbed({

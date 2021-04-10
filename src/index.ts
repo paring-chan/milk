@@ -1,6 +1,7 @@
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/duration'
-dayjs.extend(relativeTime)
+import * as moment from 'moment'
+import momentDurationFormatSetup from 'moment-duration-format'
+
+momentDurationFormatSetup(moment)
 
 import MilkClient from './client'
 
