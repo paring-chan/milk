@@ -2,6 +2,9 @@ import MilkClient from '../client'
 import { command, listener } from '@pikostudio/command.ts'
 import { Message, MessageEmbed } from 'discord.js'
 import PatchedModule from '../PatchedModule'
+import dayjs from 'dayjs'
+import { Duration } from 'dayjs/plugin/duration'
+import * as os from 'os'
 
 class General extends PatchedModule {
   constructor(public client: MilkClient) {
@@ -20,7 +23,7 @@ class General extends PatchedModule {
     )
     const embed = new MessageEmbed()
     embed.setTitle('우유봇 도움말')
-    embed.setColor('BLUE')
+    embed.setColor('RANDOM')
     for (const group of groups) {
       embed.addField(group.name, group.commands.map((x) => x.name).join(', '))
     }
@@ -39,6 +42,27 @@ class General extends PatchedModule {
         title: '🏓 | 풍!',
         description: `디스코드 API 핑: ${this.client.ws.ping}ms
 메시지 지연 시간: ${messagePing}ms`,
+      }),
+    )
+  }
+
+  formatDuration(time: Duration) {
+    return time.format('DD일 HH시간 mm분 ss초')
+  }
+
+  @command({ name: '업타임', aliases: ['uptime'] })
+  async uptime(msg: Message) {
+    const processUptime = this.formatDuration(
+      dayjs.duration(process.uptime() * 1000),
+    )
+    const serverUptime = this.formatDuration(dayjs.duration(os.uptime() * 1000))
+    const botUptime = this.formatDuration(
+      dayjs.duration(Date.now() - this.client.readyTimestamp!),
+    )
+    await msg.reply(
+      new MessageEmbed({
+        title: '업타임',
+        description: `프로세스 업타임: ${processUptime}\n서버 업타임: ${serverUptime}\n봇 업타임: ${botUptime}`,
       }),
     )
   }

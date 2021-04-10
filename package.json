@@ -18,6 +18,7 @@
   "dependencies": {
     "@pikostudio/command.ts": "^2.0.2",
     "chalk": "^4.1.0",
+    "dayjs": "^1.10.4",
     "discord.js": "discordjs/discord.js",
     "dokdo": "wonderlandpark/dokdo"
   }
