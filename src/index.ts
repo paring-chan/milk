@@ -1,1 +1,3 @@
-console.log('Hello, world!')
+import MilkClient from "./client";
+
+new MilkClient()
