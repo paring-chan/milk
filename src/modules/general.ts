@@ -1,8 +1,9 @@
 import MilkClient from "../client";
-import {command, listener, Module} from "@pikostudio/command.ts";
+import {command, listener} from "@pikostudio/command.ts";
 import {Message} from "discord.js";
+import PatchedModule from "../PatchedModule";
 
-class General extends Module {
+class General extends PatchedModule {
     constructor(public client: MilkClient) {
         super(__filename)
     }

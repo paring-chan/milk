@@ -4,6 +4,7 @@ import {CommandClient} from "@pikostudio/command.ts";
 import config from '../config.json'
 import Dokdo from "dokdo";
 import path from "path";
+import * as fs from "fs";
 
 export default class MilkClient extends CommandClient {
     config = config
@@ -14,7 +15,7 @@ export default class MilkClient extends CommandClient {
             owners: 'auto',
             prefix: config.prefix,
         });
-        ['general', 'dev'].forEach((x) => this.registry.loadModule(path.join(__dirname, 'modules/' + x)))
+        fs.readdirSync(path.join(__dirname, 'modules')).forEach((x) => this.registry.loadModule(path.join(__dirname, 'modules/' + x)))
         this.login(config.token).then(() => {
             const dokdo = new Dokdo(this, {
                 noPerm(msg: Discord.Message): any {
