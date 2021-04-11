@@ -116,9 +116,12 @@ class Info extends PatchedModule {
             name: '서버 생성일',
             value:
               '`' +
-              moment(msg.guild?.createdAt).format(
+              moment(guild.createdAt).format(
                 'YYYY년 MM월 DD일 A hh시 mm분 ss초 (Z)',
               ) +
+              '(' +
+              moment(guild.createdAt).fromNow() +
+              ')' +
               '`',
           },
         ]),
