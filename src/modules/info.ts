@@ -77,6 +77,77 @@ class Info extends PatchedModule {
         ]),
     )
   }
+
+  @command({ name: '서버정보', aliases: ['serverinfo'] })
+  async serverInfo(msg: Message) {
+    if (!msg.guild) return msg.reply('서버에서만 사용 가능합니다.')
+    const guild = msg.guild
+    await msg.reply(
+      new MessageEmbed({
+        color: 'RANDOM',
+      })
+        .setThumbnail(guild.iconURL({ dynamic: true, size: 4096 })!)
+        .setTitle(`서버 ${guild.name}의 정보`)
+        .addFields([
+          {
+            name: '서버 소유자',
+            value: '`' + guild.owner!.user.tag + '`',
+          },
+          {
+            name: '서버 ID',
+            value: '`' + guild.id + '`',
+          },
+          {
+            name: '유저 수',
+            value:
+              '`전체: ' +
+              guild.memberCount +
+              '`\n`유저: ' +
+              guild.members.cache.filter((x) => !x.user.bot).size +
+              '`\n`봇: ' +
+              guild.members.cache.filter((x) => x.user.bot).size +
+              '`',
+          },
+          {
+            name: '서버 지역',
+            value: guild.region,
+          },
+          {
+            name: '서버 생성일',
+            value:
+              '`' +
+              moment(msg.guild?.createdAt).format(
+                'YYYY년 MM월 DD일 A hh시 mm분 ss초 (Z)',
+              ) +
+              '`',
+          },
+        ]),
+    )
+    if (guild.splash)
+      await msg.channel.send(
+        new MessageEmbed({
+          title: `서버 ${guild.name}의 초대 배경`,
+        })
+          .setColor('RANDOM')
+          .setImage(
+            guild.splashURL({
+              size: 4096,
+            })!,
+          ),
+      )
+    if (guild.banner)
+      await msg.channel.send(
+        new MessageEmbed({
+          title: `서버 ${guild.name}의 배너`,
+        })
+          .setColor('RANDOM')
+          .setImage(
+            guild.bannerURL({
+              size: 4096,
+            })!,
+          ),
+      )
+  }
 }
 
 export function install(client: MilkClient) {
