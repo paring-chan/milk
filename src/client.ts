@@ -5,6 +5,7 @@ import config from '../config.json'
 import Dokdo from 'dokdo'
 import path from 'path'
 import * as fs from 'fs'
+import { ClientApplication } from 'discord.js'
 
 export default class MilkClient extends CommandClient {
   config = config

@@ -3,6 +3,9 @@ import PatchedModule from '../PatchedModule'
 import { command, optional } from '@pikostudio/command.ts'
 import { Message, MessageEmbed, User } from 'discord.js'
 import moment from 'moment'
+import { formatDuration } from '../utils'
+import { cpus } from 'os'
+import * as os from 'os'
 
 enum Status {
   online = '온라인 [🟢]',
@@ -150,6 +153,73 @@ class Info extends PatchedModule {
             })!,
           ),
       )
+  }
+
+  @command({ name: '봇정보', aliases: ['botinfo', 'hellothisisverification'] })
+  async borInfo(msg: Message) {
+    const u = this.client.user!
+    return msg.reply(
+      new MessageEmbed()
+        .setTitle(`${u.tag} 봇 정보`)
+        .setColor('RANDOM')
+        .setTimestamp(Date.now())
+        .setFooter(
+          msg.author.tag,
+          msg.author.displayAvatarURL({ dynamic: true, size: 512 }),
+        )
+        .setThumbnail(
+          u.displayAvatarURL({
+            size: 4096,
+          }),
+        )
+        .addFields([
+          {
+            name: '개발자',
+            value: this.client.owners
+              .map((x) => this.client.users.cache.get(x)?.tag)
+              .filter((x) => x)
+              .map((x) => '`' + x + '`')
+              .join(', '),
+          },
+          {
+            name: '봇 ID',
+            value: '`' + u.id + '`',
+          },
+          {
+            name: '봇 생일',
+            value: `\`${moment(u.createdAt).format(
+              'YYYY년 MM월 DD일 A hh시 mm분 ss초 (Z)',
+            )}\``,
+          },
+          {
+            name: '사용수',
+            value: [
+              `유저수: ${this.client.users.cache.size}`,
+              `서버수: ${this.client.guilds.cache.size}`,
+            ]
+              .map((x) => '`' + x + '`')
+              .join('\n'),
+          },
+          {
+            name: '업타임',
+            value: formatDuration(Date.now() - this.client.readyTimestamp!),
+          },
+          {
+            name: 'CPU',
+            value: Array.from(
+              new Set(os.cpus().map((x) => '`' + x.model + '`')),
+            ).join(', '),
+          },
+          {
+            name: 'OS',
+            value: `\`${os.type()} ${os.arch()}\``,
+          },
+          {
+            name: '초대링크',
+            value: `[\`관리자 권한으로 초대하기\`](https://discord.com/api/oauth2/authorize?client_id=${u.id}&permissions=8&scope=bot)\n[\`추천 권한으로 초대하기\`](https://discord.com/api/oauth2/authorize?client_id=${u.id}&permissions=3224696839&scope=bot)\n[\`Milk Support\`](https://discord.gg/NGKMhBeMzz)`,
+          },
+        ]),
+    )
   }
 }
 
