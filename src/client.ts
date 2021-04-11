@@ -5,10 +5,17 @@ import config from '../config.json'
 import Dokdo from 'dokdo'
 import path from 'path'
 import * as fs from 'fs'
-import { ClientApplication } from 'discord.js'
+import { Manager } from 'erela.js'
 
 export default class MilkClient extends CommandClient {
   config = config
+  erela = new Manager({
+    send: (id, payload) => {
+      const guild = this.guilds.cache.get(id)
+      if (guild) guild.shard.send(payload)
+    },
+    nodes: config.lavalink.nodes,
+  })
 
   constructor() {
     super(

@@ -132,6 +132,15 @@ dokdo@wonderlandpark/dokdo:
     dayjs "^1.9.6"
     node-fetch "^2.6.1"
 
+erela.js@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/erela.js/-/erela.js-2.3.3.tgz#22b43e29315c2fcdc8e070beda93eb3f34405c16"
+  integrity sha512-tzowGHLSodZr2j311csFSqm9lwE6plqeULTAwPwuRX9PQbXg4Ohdy/3MTMWrltiFAMSIG/5r9GQtTUt9Mqzhhw==
+  dependencies:
+    "@discordjs/collection" "^0.1.6"
+    petitio "^1.1.0"
+    ws "^7.3.1"
+
 event-target-shim@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
@@ -173,6 +182,11 @@ node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
+
+petitio@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/petitio/-/petitio-1.2.1.tgz#70049338cb05bd868aef1921bba8eb69a8c76ae8"
+  integrity sha512-K+SFnYI8BhYVZEdduQcWTv8F4GNKYYS4MlJMOLQDWcgNsC4DTjsw/ijx10JKGZ9ytKiYd9grMAVKog44WZRHUA==
 
 prettier@^2.2.1:
   version "2.2.1"

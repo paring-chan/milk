@@ -1,4 +1,13 @@
 {
   "token": "",
-  "prefix": ""
+  "prefix": "",
+  "lavalink": {
+    "nodes": [
+      {
+        "host": "",
+        "port": 2333,
+        "password": ""
+      }
+    ]
+  }
 }

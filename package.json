@@ -21,6 +21,7 @@
     "chalk": "^4.1.0",
     "discord.js": "discordjs/discord.js",
     "dokdo": "wonderlandpark/dokdo",
+    "erela.js": "^2.3.3",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2"
   }
