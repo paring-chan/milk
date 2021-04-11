@@ -65,7 +65,7 @@ class Info extends PatchedModule {
             value: user.presence.clientStatus
               ? Object.keys(user.presence.clientStatus)
                   .map((k) => Client[k as 'mobile' | 'web' | 'desktop'])
-                  .join('\n')
+                  .join(', ')
               : '`없음`',
           },
           {
