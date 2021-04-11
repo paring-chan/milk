@@ -2,6 +2,7 @@ import MilkClient from '../client'
 import { command, listener, ownerOnly } from '@pikostudio/command.ts'
 import { Message } from 'discord.js'
 import PatchedModule from '../PatchedModule'
+import chalk from 'chalk'
 
 class Dev extends PatchedModule {
   constructor(public client: MilkClient) {
@@ -29,6 +30,7 @@ class Dev extends PatchedModule {
     }
     result += `\`\`\`\n${success} successful, ${failed} failed.`
     await msg.reply(result)
+    console.log(`=========== ${chalk.cyan('[INFO]')} RELOADED ===========`)
   }
 
   @listener('commandError')
