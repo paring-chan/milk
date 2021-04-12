@@ -13,6 +13,6 @@ class Music extends PatchedModule {
   }
 }
 
-function install(client: MilkClient) {
+export function install(client: MilkClient) {
   return new Music(client)
 }
