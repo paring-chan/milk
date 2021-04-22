@@ -5,6 +5,7 @@ import PatchedModule from '../PatchedModule'
 import * as os from 'os'
 import moment from 'moment'
 import { formatDuration } from '../utils'
+import chalk from 'chalk'
 
 class General extends PatchedModule {
   constructor(public client: MilkClient) {
@@ -13,7 +14,7 @@ class General extends PatchedModule {
 
   @listener('ready')
   async ready() {
-    console.log(`Logged in as ${this.client.user!.tag}`)
+    console.log(`${chalk.cyan()} Logged in as ${this.client.user!.tag}`)
   }
 
   @command({ aliases: ['도움말'] })

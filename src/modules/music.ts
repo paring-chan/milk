@@ -1,7 +1,9 @@
 import PatchedModule from '../PatchedModule'
 import MilkClient from '../client'
-import { listener } from '@pikostudio/command.ts'
+import { command, listener, rest } from '@pikostudio/command.ts'
 import { Node } from 'erela.js'
+import chalk from 'chalk'
+import { Message } from 'discord.js'
 
 class Music extends PatchedModule {
   constructor(private client: MilkClient) {
@@ -11,10 +13,17 @@ class Music extends PatchedModule {
   load() {
     super.load()
     this.client.erela.on('nodeConnect', (node) =>
-      console.log(`Connected to node ${node.options.host}`),
+      console.log(
+        `${chalk.red('[INFO:LAVALINK]')} Connected to node ${
+          node.options.host
+        }`,
+      ),
     )
     this.client.erela.on('nodeError', (node, error) =>
-      console.log(`Error on node ${node.options.host}: `, error),
+      console.log(
+        `${chalk.red('[ERROR:LAVALINK]')} Error on node ${node.options.host}: `,
+        error,
+      ),
     )
   }
 
@@ -22,6 +31,9 @@ class Music extends PatchedModule {
     super.unload()
     this.client.erela.removeAllListeners()
   }
+
+  @command({ name: '재생', aliases: ['play'] })
+  async play(msg: Message, @rest url: string) {}
 
   @listener('ready')
   async ready() {
