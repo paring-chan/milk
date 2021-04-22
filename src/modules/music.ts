@@ -33,7 +33,9 @@ class Music extends PatchedModule {
   }
 
   @command({ name: '재생', aliases: ['play'] })
-  async play(msg: Message, @rest url: string) {}
+  async play(msg: Message, @rest url: string) {
+    console.log(url)
+  }
 
   @listener('ready')
   async ready() {
