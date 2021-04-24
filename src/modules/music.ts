@@ -1,7 +1,6 @@
 import PatchedModule from '../PatchedModule'
 import MilkClient from '../client'
 import { command, listener, rest } from '@pikostudio/command.ts'
-import { Node } from 'erela.js'
 import chalk from 'chalk'
 import { Message } from 'discord.js'
 
