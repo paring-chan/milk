@@ -33,6 +33,7 @@ class Music extends PatchedModule {
 
   @command({ name: '재생', aliases: ['play'] })
   async play(msg: Message, @rest url: string) {
+    if (!msg.guild) return
     if (!msg.member?.voice.channelID)
       return msg.reply('음성 채널에 들어가주세요')
     const player =
@@ -50,18 +51,11 @@ class Music extends PatchedModule {
       return msg.reply('검색 결과가 없습니다')
     } else if (res.loadType === 'LOAD_FAILED') {
       return msg.reply(`불러오기 실패: ${res.exception?.message}`)
-    } else if (
-      res.loadType === 'PLAYLIST_LOADED' ||
-      res.loadType === 'TRACK_LOADED' ||
-      res.loadType === 'SEARCH_RESULT'
-    ) {
-      player.queue.add(res.tracks[0])
-      player.connect()
-      if (!player.playing) await player.play()
-      return msg.reply(
-        `곡 \`${res.tracks[0].title}\`을(를) 대기열에 추가했어요!`,
-      )
     }
+    if (!msg.guild.me!.voice.channelID) player.connect()
+    player.queue.add(res.tracks[0])
+    await msg.reply(`곡 \`${res.tracks[0].title}\`을(를) 대기열에 추가했어요!`)
+    if (!player.playing) await player.play()
   }
 
   @listener('ready')
