@@ -58,7 +58,9 @@ class Music extends PatchedModule {
       player.queue.add(res.tracks[0])
       player.connect()
       if (!player.playing) await player.play()
-      return msg.reply(`${res.tracks.length}곡을 대기열에 추가했어요!`)
+      return msg.reply(
+        `곡 \`${res.tracks[0].title}\`을(를) 대기열에 추가했어요!`,
+      )
     }
   }
 
